@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Expense Tracker - Project Report</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #0056b3; /* Darker blue for headings */
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.3em;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 2px solid #0056b3;
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            border-bottom: none;
+        }
+        h4 {
+            font-size: 1.1em;
+            color: #17a2b8; /* Teal for sub-sub-headings */
+            border-bottom: none;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .toc {
+            background-color: #eef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 2em;
+            border-left: 5px solid #0056b3;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+        .toc ul ul {
+            margin-left: 20px;
+            margin-top: 0.5em;
+        }
+        .placeholder {
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>React Expense Tracker Application</h1>
+        <h2>Detailed Project Report</h2>
+
+        <!-- Placeholder Sections -->
+        <section id="title-page">
+            <h2>Title Page</h2>
+            <p class="placeholder">[Standard Title Page Content - Project Name, Author(s), Date, Institution]</p>
+        </section>
+
+        <section id="certificate">
+            <h2>Certificate/Approval Page</h2>
+            <p class="placeholder">[Standard Certificate/Approval Page Content]</p>
+        </section>
+
+        <section id="declaration">
+            <h2>Declaration</h2>
+            <p class="placeholder">[Standard Declaration Content]</p>
+        </section>
+
+        <section id="acknowledgements">
+            <h2>Acknowledgements</h2>
+            <p class="placeholder">[Acknowledgements Content - Thanking guides, peers, etc.]</p>
+        </section>
+
+        <section id="abstract">
+            <h2>Abstract</h2>
+            <p>This report details the design, development, and implementation of a modern web-based Expense Tracker application. Built using React for the frontend and Supabase as the Backend-as-a-Service (BaaS), the application provides users with a seamless platform for managing both personal and group finances. Key features include secure user authentication, intuitive expense logging, categorization, real-time data synchronization, group expense sharing, and insightful data visualizations. The project aims to address common challenges in financial management by offering a user-friendly, accessible, and feature-rich solution.</p>
+        </section>
+
+        <nav class="toc" id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#chapter1">Chapter 1: Introduction</a>
+                    <ul>
+                        <li><a href="#section1-1">1.1 Project Background</a></li>
+                        <li><a href="#section1-2">1.2 Motivation</a></li>
+                        <li><a href="#section1-3">1.3 Problem Statement</a></li>
+                        <li><a href="#section1-4">1.4 Project Scope</a></li>
+                        <li><a href="#section1-5">1.5 Objectives</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter2">Chapter 2: Literature Survey</a>
+                    <ul>
+                        <li><a href="#section2-1">2.1 Existing Expense Tracking Solutions</a></li>
+                        <li><a href="#section2-2">2.2 Technological Trends</a></li>
+                        <li><a href="#section2-3">2.3 User Experience in Financial Applications</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter3">Chapter 3: System Analysis</a>
+                    <ul>
+                        <li><a href="#section3-1">3.1 Existing System Analysis</a></li>
+                        <li><a href="#section3-2">3.2 Proposed System</a></li>
+                        <li><a href="#section3-3">3.3 Feasibility Study</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter4">Chapter 4: System Design</a>
+                    <ul>
+                        <li><a href="#section4-1">4.1 Architectural Design</a></li>
+                        <li><a href="#section4-2">4.2 Detailed Component Design</a></li>
+                        <li><a href="#section4-3">4.3 Database Design</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter5">Chapter 5: Detailed Technical Specifications</a>
+                    <ul>
+                        <li><a href="#section5-1">5.1 Technology Stack</a></li>
+                        <li><a href="#section5-2">5.2 Development Environment</a></li>
+                        <li><a href="#section5-3">5.3 Security Specifications</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter6">Chapter 6: Implementation</a>
+                    <ul>
+                        <li><a href="#section6-1">6.1 Development Methodology</a></li>
+                        <li><a href="#section6-2">6.2 Module Implementation</a></li>
+                        <li><a href="#section6-3">6.3 Code Structure</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter7">Chapter 7: Testing and Validation</a>
+                    <ul>
+                        <li><a href="#section7-1">7.1 Testing Strategy</a></li>
+                        <li><a href="#section7-2">7.2 Test Cases</a></li>
+                        <li><a href="#section7-3">7.3 Performance Testing</a></li>
+                        <li><a href="#section7-4">7.4 Security Testing</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter8">Chapter 8: Results and Discussion</a>
+                    <ul>
+                        <li><a href="#section8-1">8.1 System Performance</a></li>
+                        <li><a href="#section8-2">8.2 User Experience</a></li>
+                        <li><a href="#section8-3">8.3 Functional Verification</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter9">Chapter 9: Challenges and Limitations</a>
+                    <ul>
+                        <li><a href="#section9-1">9.1 Technical Challenges</a></li>
+                        <li><a href="#section9-2">9.2 Limitations</a></li>
+                    </ul>
+                </li>
+                <li><a href="#chapter10">Chapter 10: Future Enhancements</a>
+                    <ul>
+                        <li><a href="#section10-1">10.1 Proposed Improvements</a></li>
+                        <li><a href="#section10-2">10.2 Potential Features</a></li>
+                    </ul>
+                </li>
+                <li><a href="#references">References</a></li>
+                <li><a href="#appendices">Appendices</a></li>
+            </ul>
+        </nav>
+
+        <!-- List of Figures/Tables (Placeholders) -->
+        <section id="list-figures">
+            <h2>List of Figures</h2>
+            <p class="placeholder">[List of Figures used in the report, e.g., ER Diagram, Architecture Diagram, Screenshots]</p>
+        </section>
+        <section id="list-tables">
+            <h2>List of Tables</h2>
+            <p class="placeholder">[List of Tables used in the report, e.g., Technology Stack Comparison, Test Case Summary]</p>
+        </section>
+
+        <!-- Chapter Content -->
+        <section id="chapter1">
+            <h2>Chapter 1: Introduction</h2>
+            <h3 id="section1-1">1.1 Project Background</h3>
+            <p>In today's fast-paced digital economy, effective financial management is crucial for individuals and groups. Tracking expenses manually using spreadsheets or notebooks can be cumbersome, error-prone, and lacks real-time insights. While various digital solutions exist, many fall short in providing a seamless, integrated experience, especially for collaborative group expense management.</p>
+            <p>This project addresses the need for a modern, web-based application that simplifies expense tracking, offers powerful analytics, and facilitates transparent group finance management.</p>
+
+            <h3 id="section1-2">1.2 Motivation</h3>
+            <p>The motivation stems from observing the common difficulties people face in keeping track of their spending and managing shared expenses within groups (e.g., roommates, travel companions). Existing tools often lack intuitive interfaces, real-time synchronization, or robust group features. There is a clear opportunity to leverage modern web technologies like React and BaaS platforms like Supabase to create a superior user experience and fill this market gap.</p>
+
+            <h3 id="section1-3">1.3 Problem Statement</h3>
+            <p>To design and develop a comprehensive, user-friendly web application that enables users to:</p>
+            <ul>
+                <li>Securely track personal expenses with ease.</li>
+                <li>Create and manage groups for shared expense tracking.</li>
+                <li>Gain real-time insights into spending patterns through analytics and visualizations.</li>
+                <li>Manage finances collaboratively and transparently within groups.</li>
+            </ul>
+
+            <h3 id="section1-4">1.4 Project Scope</h3>
+            <p>The scope of this project includes:</p>
+            <ul>
+                <li>A web-based application accessible via modern browsers.</li>
+                <li>Secure user registration and authentication.</li>
+                <li>Functionality for adding, editing, deleting, and categorizing individual expenses.</li>
+                <li>Features for creating groups, inviting members, and logging shared expenses.</li>
+                <li>Calculation and display of balances within groups.</li>
+                <li>Dashboard with analytics and visualizations (e.g., spending by category, trends).</li>
+                <li>Responsive design for usability across different screen sizes (desktop, tablet, mobile).</li>
+            </ul>
+
+            <h3 id="section1-5">1.5 Objectives</h3>
+            <ul>
+                <li>To create an intuitive and visually appealing user interface for expense tracking.</li>
+                <li>To implement secure user authentication and authorization using Supabase Auth.</li>
+                <li>To develop robust features for managing group expenses, including member invitations and balance calculations.</li>
+                <li>To provide users with comprehensive financial analytics and data visualizations.</li>
+                <li>To ensure the application is responsive and performs efficiently.</li>
+                <li>To leverage the real-time capabilities of Supabase for instant data updates.</li>
+            </ul>
+        </section>
+
+        <section id="chapter2">
+            <h2>Chapter 2: Literature Survey</h2>
+            <h3 id="section2-1">2.1 Existing Expense Tracking Solutions</h3>
+            <h4>2.1.1 Manual Tracking Methods</h4>
+            <p>Traditional methods like spreadsheets (Excel, Google Sheets) and physical ledgers offer basic tracking but lack automation, real-time updates, collaboration features, and advanced analytics. They are often time-consuming and prone to manual errors.</p>
+            <h4>2.1.2 Digital Expense Tracking Applications</h4>
+            <p>Numerous digital applications exist (e.g., Splitwise, Mint, YNAB). A comparative analysis reveals strengths such as dedicated mobile apps, budgeting features, and bank account integration. However, limitations often include complex interfaces, subscription costs, limited customization, or inadequate group expense handling beyond simple splitting.</p>
+
+            <h3 id="section2-2">2.2 Technological Trends</h3>
+            <h4>2.2.1 Web Application Development</h4>
+            <p>Modern web development heavily relies on JavaScript frameworks/libraries. React, with its component-based architecture, virtual DOM, and large ecosystem (including state management like Context API or Redux, and routing with React Router), is a popular choice for building interactive and dynamic user interfaces.</p>
+            <h4>2.2.2 Backend as a Service (BaaS)</h4>
+            <p>BaaS platforms like Supabase and Firebase abstract backend infrastructure, allowing developers to focus on frontend development. Supabase, an open-source alternative, provides PostgreSQL database, authentication, real-time subscriptions, storage, and edge functions, making it a compelling choice for rapid development.</p>
+
+            <h3 id="section2-3">2.3 User Experience in Financial Applications</h3>
+            <p>UX design is critical for financial applications. Key principles include simplicity, clarity, trust, and security. Users need intuitive navigation, clear data presentation, and easy input methods. Accessibility considerations are also important to ensure the application is usable by everyone. A user-centric approach focuses on understanding user needs and pain points to design an effective and engaging experience.</p>
+        </section>
+
+        <section id="chapter3">
+            <h2>Chapter 3: System Analysis</h2>
+            <h3 id="section3-1">3.1 Existing System Analysis</h3>
+             <h4>3.1.1 Current Expense Tracking Methods</h4>
+             <p>As discussed in the literature survey, current methods range from manual tracking (spreadsheets, notebooks) to various digital apps. User pain points often involve the time required for manual entry, difficulty in tracking shared expenses accurately, lack of real-time visibility, and overwhelming complexity in some digital solutions.</p>
+             <h4>3.1.2 Drawbacks of Existing Systems</h4>
+             <ul>
+                 <li>Lack of real-time synchronization across devices/users.</li>
+                 <li>Limited or cumbersome group expense management features.</li>
+                 <li>Insufficient or non-intuitive analytics and reporting.</li>
+                 <li>Potential security concerns or privacy issues.</li>
+                 <li>Steep learning curves or subscription costs.</li>
+             </ul>
+
+            <h3 id="section3-2">3.2 Proposed System</h3>
+            <h4>3.2.1 System Overview</h4>
+            <p>The proposed system is a web application built with React and Supabase. It aims to provide a comprehensive, real-time expense tracking solution for both individuals and groups, featuring advanced analytics and a user-friendly interface.</p>
+            <h4>3.2.2 System Features</h4>
+            <ul>
+                <li><strong>User Authentication:</strong> Secure signup, login, password reset using Supabase Auth.</li>
+                <li><strong>Expense Logging:</strong> Add, edit, delete expenses with details like amount, description, date, category.</li>
+                <li><strong>Category Management:</strong> Define and manage expense categories.</li>
+                <li><strong>Group Expense Tracking:</strong> Create groups, invite members via email/link, log shared expenses, define splits (equal, unequal, percentage), view group balances.</li>
+                <li><strong>Financial Reporting & Analytics:</strong> Dashboard displaying spending summaries, charts (pie chart for categories, bar chart for trends), filtering options.</li>
+                <li><strong>Data Visualization:</strong> Interactive charts to understand spending patterns.</li>
+                <li><strong>Real-time Updates:</strong> Leveraging Supabase real-time subscriptions for instant updates on expenses and group activities.</li>
+                <li><strong>Profile Management:</strong> Users can update their profile information.</li>
+                <li><strong>Invitations Management:</strong> Users can view and accept/reject group invitations.</li>
+            </ul>
+
+            <h3 id="section3-3">3.3 Feasibility Study</h3>
+            <h4>3.3.1 Technical Feasibility</h4>
+            <p>The chosen technology stack (React, TypeScript, Supabase, Tailwind CSS) is well-established, widely supported, and suitable for building modern web applications. React's component model facilitates modular development. Supabase provides the necessary backend services (database, auth, real-time) with good documentation and community support. The development approach is technically sound.</p>
+            <h4>3.3.2 Economic Feasibility</h4>
+            <p>Development costs primarily involve developer time. Using Supabase's generous free tier significantly reduces initial infrastructure costs. React and other frontend libraries are open-source. Potential monetization could involve premium features in the future, but the core functionality can be offered for free, making it economically viable for initial development and user adoption.</p>
+            <h4>3.3.3 Operational Feasibility</h4>
+            <p>The application is designed to be intuitive and user-friendly, minimizing training requirements. As a web application, it's easily accessible through browsers. User adoption potential is high due to the common need for effective expense tracking. Deployment and maintenance are streamlined using modern web hosting platforms and Supabase's managed services.</p>
+        </section>
+
+        <section id="chapter4">
+            <h2>Chapter 4: System Design</h2>
+            <h3 id="section4-1">4.1 Architectural Design</h3>
+            <h4>4.1.1 Frontend Architecture</h4>
+            <ul>
+                <li><strong>Component-Based Design:</strong> Utilizing React's functional components and Hooks (<code>useState</code>, <code>useEffect</code>, <code>useContext</code>). UI built using reusable components (e.g., `ExpenseCard`, `GroupCard`, `AddExpenseModal`, `Header`, `Sidebar`). Shadcn/ui and Tailwind CSS used for styling and UI primitives.</li>
+                <li><strong>State Management:</strong> React Context API used for managing global state like authentication status (`AuthContext`), theme (`ThemeContext`), and potentially shared expense data (`ExpenseContext`). Local component state managed using `useState`.</li>
+                <li><strong>Routing:</strong> React Router used for client-side routing to navigate between different pages (Dashboard, Expenses, Groups, Profile, Auth). Protected routes implemented to restrict access based on authentication status.</li>
+            </ul>
+            <h4>4.1.2 Backend Architecture</h4>
+            <ul>
+                <li><strong>Supabase Infrastructure:</strong> Leveraging Supabase as the BaaS provider.</li>
+                <li><strong>Database:</strong> PostgreSQL database hosted by Supabase. Schema designed to store user data, expenses, groups, memberships, invitations, and potentially categories. Row Level Security (RLS) policies implemented to ensure users can only access their own data or data belonging to groups they are members of.</li>
+                <li><strong>Authentication:</strong> Supabase Auth used for handling user registration, login (email/password, potentially social logins), password recovery, and session management. JWTs used for securing API requests.</li>
+                <li><strong>Real-time:</strong> Supabase Realtime subscriptions used to listen for database changes (e.g., new expenses, group updates) and update the UI instantly without manual refreshing.</li>
+                <li><strong>Storage (Optional):</strong> Supabase Storage could be used for features like uploading receipt images.</li>
+            </ul>
+
+            <h3 id="section4-2">4.2 Detailed Component Design</h3>
+            <p>Key components include:</p>
+            <ul>
+                <li><strong>Authentication Components (`Auth.tsx`, `ProtectedRoute.tsx`):</strong> Handles login/signup forms, interacts with `AuthContext` and Supabase Auth. `ProtectedRoute` wraps routes requiring authentication.</li>
+                <li><strong>Expense Management Components (`Expenses.tsx`, `AddExpenseModal.tsx`, `EditExpenseModal.tsx`, `ExpenseCard.tsx`):</strong> Display list of expenses, provide forms for adding/editing expenses, interact with Supabase database functions.</li>
+                <li><strong>Group Expense Components (`Groups.tsx`, `GroupDetail.tsx`, `CreateGroupModal.tsx`, `AddGroupMembersModal.tsx`, `GroupCard.tsx`):</strong> Manage group creation, member invitations, display group lists and details, handle shared expense logging and balance calculations.</li>
+                <li><strong>Analytics Components (`Analytics.tsx`, `PieChart.tsx`, `BarChart.tsx`, `StatCard.tsx`):</strong> Fetch aggregated data from Supabase, display charts and key statistics.</li>
+                <li><strong>Layout Components (`Header.tsx`, `Sidebar.tsx`):</strong> Provide consistent navigation and application structure.</li>
+                <li><strong>UI Components (`src/components/ui/`):</strong> Reusable primitive components (Button, Input, Card, Dialog, etc.) based on Shadcn/ui.</li>
+            </ul>
+
+            <h3 id="section4-3">4.3 Database Design</h3>
+            <h4>4.3.1 Entity-Relationship Diagram (Conceptual)</h4>
+            <p>An ER diagram would show the following main entities and relationships:</p>
+            <ul>
+                <li><strong>Users:</strong> Stores user information (linked to `auth.users`). Attributes: `id`, `email`, `full_name`, `avatar_url`, etc.</li>
+                <li><strong>Expenses:</strong> Stores individual and group expense details. Attributes: `id`, `user_id` (payer), `group_id` (nullable, for group expenses), `description`, `amount`, `category`, `date`, `created_at`.</li>
+                <li><strong>Groups:</strong> Stores group information. Attributes: `id`, `name`, `description`, `created_by` (user_id), `created_at`.</li>
+                <li><strong>GroupMembers:</strong> Junction table linking Users and Groups (Many-to-Many). Attributes: `user_id`, `group_id`, `joined_at`.</li>
+                <li><strong>ExpenseSplits (Conceptual or implemented via logic/JSON):</strong> Details how a group expense is split among members. Could be a separate table or logic applied when calculating balances. Attributes: `expense_id`, `user_id`, `amount_owed`.</li>
+                <li><strong>Invitations:</strong> Stores pending group invitations. Attributes: `id`, `group_id`, `invited_user_email`, `inviting_user_id`, `status` (pending, accepted, rejected), `created_at`.</li>
+                <li><strong>Categories (Optional):</strong> Could be a separate table or predefined list. Attributes: `id`, `name`, `user_id` (if user-defined).</li>
+            </ul>
+            <p class="placeholder">[An actual ER diagram image would be included here in a full report.]</p>
+
+            <h4>4.3.2 Database Tables (Example Structures)</h4>
+            <pre><code>
+-- Users table is managed by Supabase Auth, profile data often in a separate 'profiles' table
+CREATE TABLE profiles (
+  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  full_name TEXT,
+  avatar_url TEXT,
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE TABLE groups (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL,
+  description TEXT,
+  created_by UUID REFERENCES profiles(id) ON DELETE SET NULL,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE TABLE group_members (
+  group_id UUID REFERENCES groups(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  joined_at TIMESTAMPTZ DEFAULT now(),
+  PRIMARY KEY (group_id, user_id)
+);
+
+CREATE TABLE expenses (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  description TEXT NOT NULL,
+  amount NUMERIC(10, 2) NOT NULL,
+  date DATE NOT NULL,
+  category TEXT,
+  payer_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  group_id UUID REFERENCES groups(id) ON DELETE CASCADE, -- Nullable for personal expenses
+  -- split_details JSONB, -- Could store how the expense is split if not using a separate table
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE TABLE invitations (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  group_id UUID REFERENCES groups(id) ON DELETE CASCADE,
+  inviting_user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  invited_user_email TEXT NOT NULL,
+  status TEXT DEFAULT 'pending', -- pending, accepted, rejected
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- RLS Policies would be applied to these tables
+            </code></pre>
+        </section>
+
+        <section id="chapter5">
+            <h2>Chapter 5: Detailed Technical Specifications</h2>
+            <h3 id="section5-1">5.1 Technology Stack</h3>
+            <h4>5.1.1 Frontend Technologies</h4>
+            <ul>
+                <li><strong>Core Library:</strong> React.js (v18+)</li>
+                <li><strong>Language:</strong> TypeScript</li>
+                <li><strong>UI Components:</strong> Shadcn/ui</li>
+                <li><strong>Styling:</strong> Tailwind CSS</li>
+                <li><strong>Routing:</strong> React Router (v6+)</li>
+                <li><strong>State Management:</strong> React Context API</li>
+                <li><strong>Data Fetching/Mutation:</strong> Supabase JavaScript Client Library (`@supabase/supabase-js`)</li>
+                <li><strong>Charting:</strong> Recharts (used via Shadcn/ui chart components)</li>
+                <li><strong>Forms:</strong> React Hook Form (likely used with Shadcn/ui form components)</li>
+                <li><strong>Build Tool:</strong> Vite</li>
+                <li><strong>Package Manager:</strong> npm or bun</li>
+            </ul>
+            <h4>5.1.2 Backend Technologies</h4>
+            <ul>
+                <li><strong>Platform:</strong> Supabase (Cloud Hosted)</li>
+                <li><strong>Database:</strong> PostgreSQL</li>
+                <li><strong>Authentication:</strong> Supabase Auth (JWT-based)</li>
+                <li><strong>Real-time:</strong> Supabase Realtime Subscriptions</li>
+                <li><strong>APIs:</strong> Auto-generated RESTful API by Supabase (PostgREST), Supabase JS Client Library</li>
+                <li><strong>Serverless Functions (Optional):</strong> Supabase Edge Functions (Deno-based) for custom backend logic if needed.</li>
+            </ul>
+
+            <h3 id="section5-2">5.2 Development Environment</h3>
+            <ul>
+                <li><strong>Code Editor:</strong> Visual Studio Code</li>
+                <li><strong>Version Control:</strong> Git, GitHub/GitLab/Bitbucket</li>
+                <li><strong>Runtime:</strong> Node.js (LTS version)</li>
+                <li><strong>Linters/Formatters:</strong> ESLint, Prettier</li>
+                <li><strong>Operating System:</strong> Windows, macOS, or Linux</li>
+            </ul>
+
+            <h3 id="section5-3">5.3 Security Specifications</h3>
+            <ul>
+                <li><strong>Authentication:</strong> Handled by Supabase Auth, supporting secure password storage and session management (JWT).</li>
+                <li><strong>Authorization:</strong> Implemented using PostgreSQL Row Level Security (RLS) policies within Supabase to ensure users can only access/modify data they own or have permission for (e.g., group data).</li>
+                <li><strong>Data Encryption:</strong> HTTPS enforced for all communication. Supabase handles encryption at rest for database and storage.</li>
+                <li><strong>Input Validation:</strong> Frontend and potentially backend validation to prevent invalid data entry and mitigate risks like XSS.</li>
+                <li><strong>Dependency Management:</strong> Regularly update dependencies to patch known vulnerabilities.</li>
+            </ul>
+        </section>
+
+        <section id="chapter6">
+            <h2>Chapter 6: Implementation</h2>
+            <h3 id="section6-1">6.1 Development Methodology</h3>
+            <p>An Agile development approach was likely followed, possibly using sprints or iterative development cycles. This involves:</p>
+            <ul>
+                <li>Breaking down features into smaller, manageable tasks.</li>
+                <li>Regular iterations of development, testing, and feedback.</li>
+                <li>Using version control (Git) for code management and collaboration.</li>
+                <li>Potentially using project management tools (e.g., Trello, Jira, GitHub Projects) to track progress.</li>
+                <li>Continuous Integration (CI) might be set up (e.g., using GitHub Actions) to automate builds and tests.</li>
+            </ul>
+
+            <h3 id="section6-2">6.2 Module Implementation</h3>
+            <h4>6.2.1 Authentication Module</h4>
+            <p>Implemented using the Supabase JS client library (`supabase.auth.signInWithPassword`, `supabase.auth.signUp`, `supabase.auth.signOut`, etc.). UI components (`Auth.tsx`) provide forms for user input. `AuthContext` manages the user session state globally. `ProtectedRoute` component checks authentication status before rendering protected pages.</p>
+            <h4>6.2.2 Expense Tracking Module</h4>
+            <p>Involves components like `Expenses.tsx` to display expenses fetched from the `expenses` table (filtered by user or group). Modals (`AddExpenseModal.tsx`, `EditExpenseModal.tsx`) use forms (likely React Hook Form) to capture expense details. Data is saved/updated using Supabase client functions (`supabase.from('expenses').insert(...)`, `supabase.from('expenses').update(...)`). Real-time subscriptions update the list automatically.</p>
+            <h4>6.2.3 Group Expense Module</h4>
+            <p>Functionality includes creating groups (`CreateGroupModal.tsx`), inviting members (`AddGroupMembersModal.tsx` - potentially creating records in the `invitations` table), accepting invitations (`Invitations.tsx`), viewing group details (`GroupDetail.tsx`), and logging shared expenses within a group context. Logic for calculating balances between members based on expense splits is implemented, likely involving queries that aggregate data from `expenses` and `group_members` tables.</p>
+
+            <h3 id="section6-3">6.3 Code Structure</h3>
+            <p>The project follows a standard React project structure:</p>
+            <pre><code>
+d:/College/New folder/
+├── public/             # Static assets
+├── src/
+│   ├── App.tsx         # Main application component with routing
+│   ├── main.tsx        # Entry point, renders App
+│   ├── index.css       # Global styles (Tailwind base/utilities)
+│   ├── components/     # Reusable UI components
+│   │   ├── auth/       # Authentication related components
+│   │   ├── charts/     # Chart components
+│   │   ├── landing/    # Landing page components
+│   │   ├── layout/     # Header, Sidebar, etc.
+│   │   ├── modals/     # Modal dialog components
+│   │   └── ui/         # Shadcn/ui base components
+│   ├── contexts/       # React Context providers (AuthContext, ThemeContext)
+│   ├── hooks/          # Custom React Hooks
+│   ├── integrations/   # Integration logic (e.g., Supabase client setup)
+│   │   └── supabase/
+│   │       ├── client.ts # Supabase client instance
+│   │       └── types.ts  # Supabase generated types
+│   ├── lib/            # Utility functions (e.g., utils.ts)
+│   ├── pages/          # Page-level components (Dashboard, Expenses, Groups)
+│   ├── types/          # Custom TypeScript types/interfaces
+│   └── utils/          # General utility functions
+├── vite.config.ts      # Vite configuration
+├── tsconfig.json       # TypeScript configuration
+├── package.json        # Project dependencies and scripts
+└── tailwind.config.ts  # Tailwind CSS configuration
+            </code></pre>
+        </section>
+
+        <section id="chapter7">
+            <h2>Chapter 7: Testing and Validation</h2>
+            <h3 id="section7-1">7.1 Testing Strategy</h3>
+            <p>A multi-layered testing strategy is recommended:</p>
+            <ul>
+                <li><strong>Unit Testing:</strong> Testing individual components and utility functions in isolation (e.g., using Jest, React Testing Library). Focus on verifying component rendering, state changes, and function logic.</li>
+                <li><strong>Integration Testing:</strong> Testing the interaction between multiple components or between frontend components and Supabase services (e.g., testing if submitting an expense form correctly calls the Supabase API and updates the UI).</li>
+                <li><strong>End-to-End (E2E) Testing:</strong> Simulating real user scenarios across the entire application (e.g., using Cypress or Playwright). Testing user flows like login -> add expense -> view analytics.</li>
+                <li><strong>User Acceptance Testing (UAT):</strong> Getting feedback from actual users to ensure the application meets their needs and is intuitive.</li>
+            </ul>
+
+            <h3 id="section7-2">7.2 Test Cases</h3>
+            <p>Examples of test cases:</p>
+            <ul>
+                <li><strong>Unit Tests:</strong>
+                    <ul>
+                        <li>Verify `ExpenseCard` renders correctly with given props.</li>
+                        <li>Test utility function for formatting currency.</li>
+                        <li>Check if `AuthContext` updates state correctly on login/logout.</li>
+                    </ul>
+                </li>
+                <li><strong>Integration Tests:</strong>
+                    <ul>
+                        <li>Test if adding an expense through `AddExpenseModal` results in a new item appearing in the `Expenses` list.</li>
+                        <li>Verify that logging out clears the user session and redirects to the login page.</li>
+                        <li>Test group invitation flow: sending, receiving, accepting.</li>
+                    </ul>
+                </li>
+                <li><strong>E2E Tests:</strong>
+                    <ul>
+                        <li>User logs in, creates a group, invites another user, adds a shared expense, verifies balances.</li>
+                        <li>User logs in, adds several personal expenses, checks the analytics page for correct chart rendering.</li>
+                    </ul>
+                </li>
+                <li><strong>UAT Scenarios:</strong>
+                    <ul>
+                        <li>Ask users to track their expenses for a day.</li>
+                        <li>Ask users to set up a group and manage shared bills with friends.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 id="section7-3">7.3 Performance Testing</h3>
+            <p>Focus areas for performance testing:</p>
+            <ul>
+                <li><strong>Load Times:</strong> Measuring initial page load speed and navigation times using browser developer tools or tools like Lighthouse. Optimizing bundle size (code splitting).</li>
+                <li><strong>Responsiveness:</strong> Testing UI responsiveness during data fetching, state updates, and animations.</li>
+                <li><strong>Database Query Performance:</strong> Analyzing Supabase query performance, ensuring proper indexing for large datasets.</li>
+                <li><strong>Real-time Performance:</strong> Assessing the delay and resource usage of real-time updates under load.</li>
+            </ul>
+
+            <h3 id="section7-4">7.4 Security Testing</h3>
+            <ul>
+                <li><strong>RLS Policy Verification:</strong> Manually testing and writing automated tests (if possible) to ensure Row Level Security policies correctly restrict data access.</li>
+                <li><strong>Authentication/Authorization Checks:</strong> Verifying that unauthenticated users cannot access protected routes/data and that users cannot access data they don't have permission for (e.g., other users' expenses, private groups).</li>
+                <li><strong>Input Sanitization/Validation:</strong> Testing for vulnerabilities like Cross-Site Scripting (XSS) by inputting malicious scripts into forms.</li>
+                <li><strong>Dependency Scanning:</strong> Using tools like `npm audit` or Snyk to check for known vulnerabilities in dependencies.</li>
+                <li><strong>Supabase Security Best Practices:</strong> Ensuring API keys are handled securely (using environment variables) and Supabase project security settings are configured correctly.</li>
+            </ul>
+        </section>
+
+        <section id="chapter8">
+            <h2>Chapter 8: Results and Discussion</h2>
+            <h3 id="section8-1">8.1 System Performance</h3>
+            <p>The application generally performs well due to React's efficient rendering and Supabase's optimized backend. Initial load times are reasonable, aided by Vite's fast bundling. Real-time updates via Supabase subscriptions provide a responsive user experience. Performance bottlenecks might occur with very large datasets (e.g., thousands of expenses or complex group calculations), which would require query optimization and potentially pagination or virtualization on the frontend.</p>
+            <p class="placeholder">[Specific metrics from performance tests (e.g., Lighthouse scores, query times) would be included here.]</p>
+
+            <h3 id="section8-2">8.2 User Experience</h3>
+            <p>The UI, built with Shadcn/ui and Tailwind CSS, offers a modern and clean aesthetic. The component-based structure leads to a consistent experience. Navigation is handled by React Router, providing standard web navigation patterns. Modals simplify adding/editing data without leaving the current context. Feedback from usability testing would highlight areas for improvement, such as clarifying certain interactions or improving the layout of specific pages.</p>
+            <p class="placeholder">[Results from UAT and usability testing would be discussed here.]</p>
+
+            <h3 id="section8-3">8.3 Functional Verification</h3>
+            <p>Testing confirms that the core features implemented align with the project objectives. Users can successfully register, log in, track personal expenses, create/manage groups, log shared expenses, and view basic analytics. The real-time features ensure data consistency across sessions and users within a group. Any deviations or bugs found during testing are documented and addressed.</p>
+            <p class="placeholder">[A summary of test results (pass/fail rates for different test types) could be presented.]</p>
+        </section>
+
+        <section id="chapter9">
+            <h2>Chapter 9: Challenges and Limitations</h2>
+            <h3 id="section9-1">9.1 Technical Challenges</h3>
+            <ul>
+                <li><strong>State Management Complexity:</strong> Managing global vs. local state, especially with real-time updates, can become complex. Ensuring data consistency across different components requires careful context design or use of more advanced state management libraries if needed.</li>
+                <li><strong>Real-time Synchronization Logic:</strong> Handling real-time updates efficiently (e.g., avoiding unnecessary re-renders, managing subscription connections) requires careful implementation.</li>
+                <li><strong>Complex Database Queries:</strong> Implementing logic for group balance calculations or advanced analytics might require complex SQL queries or Supabase functions, demanding good understanding of PostgreSQL.</li>
+                <li><strong>UI Responsiveness:</strong> Ensuring a seamless experience across various screen sizes using Tailwind CSS requires thorough testing and potentially complex responsive design patterns.</li>
+                <li><strong>RLS Policy Debugging:</strong> Writing and debugging Row Level Security policies in Supabase can be challenging initially.</li>
+            </ul>
+
+            <h3 id="section9-2">9.2 Limitations</h3>
+            <ul>
+                <li><strong>Offline Support:</strong> The current application requires an active internet connection to interact with Supabase. No offline functionality is implemented.</li>
+                <li><strong>Limited Analytics:</strong> Analytics features are basic; more advanced reporting or custom date range filtering might be desired by some users.</li>
+                <li><strong>No Budgeting Features:</strong> The application focuses on tracking expenses, not on setting or monitoring budgets.</li>
+                <li><strong>No Bank Integration:</strong> Expenses must be entered manually; there is no automatic import from bank accounts.</li>
+                <li><strong>Scalability Concerns:</strong> While Supabase scales well, extremely large numbers of concurrent users or massive datasets might eventually require performance tuning or architectural changes.</li>
+            </ul>
+        </section>
+
+        <section id="chapter10">
+            <h2>Chapter 10: Future Enhancements</h2>
+            <h3 id="section10-1">10.1 Proposed Improvements</h3>
+            <ul>
+                <li><strong>Enhanced Analytics:</strong> Add more chart types, custom date range filtering, spending comparisons over time, export options (CSV/PDF).</li>
+                <li><strong>Budgeting Module:</strong> Allow users to set budgets by category or overall, and track spending against those budgets.</li>
+                <li><strong>Improved Group Management:</strong> More sophisticated split options (e.g., by percentage, shares), expense settlement workflows within groups.</li>
+                <li><strong>Refined UI/UX:</strong> Incorporate user feedback to improve usability, add themes, enhance accessibility.</li>
+                <li><strong>Performance Optimization:</strong> Implement frontend optimizations like virtualization for long lists, optimize complex database queries.</li>
+            </ul>
+
+            <h3 id="section10-2">10.2 Potential Features</h3>
+            <ul>
+                <li><strong>Receipt Scanning:</strong> Integrate OCR functionality (possibly via a third-party API or Supabase Edge Function) to automatically extract expense details from uploaded receipt images.</li>
+                <li><strong>Multi-Currency Support:</strong> Allow users to log expenses in different currencies and handle conversions.</li>
+                <li><strong>Recurring Expenses:</strong> Add functionality to schedule recurring expenses (e.g., rent, subscriptions).</li>
+                <li><strong>Notifications:</strong> Implement in-app or email notifications for group activities, upcoming bills, or budget alerts.</li>
+                <li><strong>Mobile Application:</strong> Develop native mobile apps (iOS/Android) using React Native or native development for better mobile experience and offline capabilities.</li>
+                <li><strong>AI/ML Integration:</strong> Predictive expense analysis, automatic categorization suggestions.</li>
+            </ul>
+        </section>
+
+        <section id="references">
+            <h2>References</h2>
+            <p class="placeholder">[List of references - e.g., React documentation, Supabase documentation, articles on web development, UI/UX principles, related work.]</p>
+            <ul>
+                <li>React Documentation: <a href="https://reactjs.org/docs/getting-started.html" target="_blank">https://reactjs.org/docs/getting-started.html</a></li>
+                <li>Supabase Documentation: <a href="https://supabase.com/docs" target="_blank">https://supabase.com/docs</a></li>
+                <li>Tailwind CSS Documentation: <a href="https://tailwindcss.com/docs" target="_blank">https://tailwindcss.com/docs</a></li>
+                <li>Shadcn/ui: <a href="https://ui.shadcn.com/" target="_blank">https://ui.shadcn.com/</a></li>
+                <li>React Router Documentation: <a href="https://reactrouter.com/" target="_blank">https://reactrouter.com/</a></li>
+                <li>Vite Documentation: <a href="https://vitejs.dev/guide/" target="_blank">https://vitejs.dev/guide/</a></li>
+                {/* Add more relevant references */}
+            </ul>
+        </section>
+
+        <section id="appendices">
+            <h2>Appendices</h2>
+            <p class="placeholder">[Optional appendices - e.g., Detailed User Manual, Installation Guide, Key Code Snippets, Configuration Details, UI Wireframes/Mockups.]</p>
+        </section>
+
+    </div>
+</body>
+</html>
